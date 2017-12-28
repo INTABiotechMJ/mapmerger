@@ -1,0 +1,1 @@
+A python script that colapse similar markers into one line in order to simplify further analyses.
