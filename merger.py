@@ -150,16 +150,20 @@ final = merged_wc_no_match + merge_full_wc
 idx = 0
 for row in final:
 	positions = {}
-	ids = row[0][1:-1]
+	ids = row[0]
+	ids = ids.replace("(","").replace(")","")
+	ids = ids.replace("[","").replace("]","")
+	ids = ids.replace("{","").replace("}","")
+	ids = ids.replace(" ","")
 	ids = ids.split(',')
 	for id in ids:
 		id_clean = id.replace(" ","")
 		for line in input_file:
-			#print line[0]
 			if line[0] == id_clean:
 				positions.setdefault(line[1], []).append( (id_clean,line[2]) )
 	#get most common element in list (dict keys)
 	chromosome = max(set(positions.keys()), key=positions.keys().count)
+
 	_id, position = min(positions[chromosome], key= lambda x: x[1])
 	final[idx] += (chromosome, position, _id, )
 	idx += 1
