@@ -1,6 +1,6 @@
-A python script that colapse similar markers into one line in order to simplify further analyses.
+A python script that colapse similar molecular markers (standart format) into one line in order to simplify further statistical analyses.
 
-python merger.py input.csv output.csv  
+python merger.py input.csv output.csv 
 
 Input: Comma separated Values
 Columns: Id,chromosme, position (if any), marker values or missing data ('-')
